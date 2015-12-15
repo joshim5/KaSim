@@ -1,0 +1,19 @@
+%def: "displayCompression" "none" "weak" 
+%def: "showIntroEvents" "true" 
+
+'bind' A(a), B(b) -> A(a!1), B(b!1) @0.1
+'bindCATALYST' A(a), C(c) -> A(a,c!2), C(c!2) @0.1
+'bindFAST' A(a,c!2), B(b), C(c!2) -> A(a!1, c), B(b!1), C(c) @0.8
+'unbind' A(a!1), B(b!1)-> A(a), B(b) @0.1
+'phosphorylate' A(a!1, x~u), B(b!1)-> A(a!1, x~p), B(b!1) @0.5
+
+%obs: 'GOAL' |A(a,x~p)|
+
+%init: 10 A(a, x~u), B(b), C(c)
+
+%agent: A(a,x~u~p,c)
+%agent: B(b)
+%agent: C(c)
+
+%mod: [T]>0 do $TRACK 'GOAL' [true]
+%def: "displayCompression" "none" "weak" "strong"

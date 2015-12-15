@@ -1,13 +1,17 @@
 (* Matching from a weakly compressed story to a trace, and
- * from a weakly compressed story with agent identifiers abstracted
+ * from a strongly compressed story with agent identifiers abstracted
  * away to a trace. 
  *
  * At the present, there is no easy user interface to check for 
  * story matching, as there is no format in which a user can
- * easily specify a story. In create_toy_story, we provide an example of 
- * checking weak compression story matching on a sample example
- * provided, in simple.ka.  
+ * easily specify a story. In create_toy_story (lines 165-195, we show
+ * how a story can be generated with some work for a particular system.
+ * We hav checked, for example, that they system described by
+ * simple.ka reports the story A.B -> AB.C as valid, whereas the story 
+ * AB.C -> A.B is invalid. We are just beginning to evaluate the 
+ * performance of the strong compression matching algorithm.
  *)
+
 open Printf
 
 module KI = Utilities.S.PH.B.PB.CI.Po.K
